@@ -31,5 +31,57 @@
  * @returns {number} Total price or -1 for invalid input
  */
 export function calculateCoffeePrice(size, type, extras = {}) {
-  // Your code here
+  
+  
+
+  if (!['small', 'medium', 'large'].includes(size)) {
+    return -1;
+  }
+
+  if (!['regular', 'latte', 'cappuccino','mocha'].includes(type)) {
+    return -1;
+  }
+
+const extraOptionals = 
+  extras.whippedCream && extras.extraShot ? 0.50 + 0.75 :
+ extras.whippedCream ?  0.50 : extras.extraShot ?  0.75 :0.00;
+
+
+   if(type === 'regular'){
+        
+      if(size === 'small'){
+         return Number((3.00 + extraOptionals).toFixed(2))
+      }else if(size === 'medium'){
+         return Number((4.00 + extraOptionals).toFixed(2))
+      }else if(size === 'large'){
+        return  Number((5.00 + extraOptionals).toFixed(2))
+      }
+         
+    }else if(type === 'latte'){
+      if(size === 'small'){
+        return Number((3.00 + 1.00+ extraOptionals).toFixed(2))
+     }else if(size === 'medium'){
+        return Number((4.00 +1.00 + extraOptionals).toFixed(2))
+     }else if(size === 'large'){
+       return ((5.00 + 1.00 + extraOptionals).toFixed(2))
+     }
+    }else if(type === 'cappuccino'){
+      if(size === 'small'){
+        return Number((3.00 + 1.50+ extraOptionals).toFixed(2))
+     }else if(size === 'medium'){
+        return Number((4.00 +1.50 + extraOptionals).toFixed(2))
+     }else if(size === 'large'){
+       return  Number(size (5.00 + 1.50 + extraOptionals).toFixed(2))
+     }
+    }else if(type === 'mocha'){
+      if(size === 'small'){
+        return Number((3.00 + 2.00+ extraOptionals).toFixed(2))
+     }else if(size === 'medium'){
+        return Number((4.00 +2.00 + extraOptionals).toFixed(2))
+     }else if(size === 'large'){
+       return  Number((5.00 + 2.00 + extraOptionals).toFixed(2))
+     }
+    }
+
+   
 }
